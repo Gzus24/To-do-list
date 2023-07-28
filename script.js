@@ -1,22 +1,30 @@
 
-let input = document.querySelector('input');
+const input = document.querySelector('input');
 const btn = document.querySelector('.add');
-let ul = document.createElement('ul');
-let section = document.querySelector('section');
+const ul = document.createElement('ul');
+const section = document.querySelector('section');
 section.appendChild(ul);
-ul.classList.add('ul')
 
-btn.addEventListener('click', addList);
+function ToDo (chore){
+    this.chore = chore;
 
-function addList(){
-    const inputVal = document.querySelector('.input').value;
-    let li = document.createElement('li');
-    ul.appendChild(li);
-    li.classList.add('li');
-    li.textContent = inputVal;
-    let odd = document.querySelectorAll('.li:nth-child(odd)');
-    odd.forEach(e => e.style.background = '#001C30');
-        li.onclick =()=> {
+    this.setTask = function(){
+        const li = document.createElement('li');
+        ul.appendChild(li);
+        li.textContent = chore;
+        li.onclick =()=>{
             ul.removeChild(li);
-         }
+        }
+    };
+    this.setOddColor = function(){
+        let odd = document.querySelectorAll('li:nth-child(odd)');
+        odd.forEach(e => e.style.background = '#001C30')
+    }
+}
+
+btn.onclick = ()=>{
+    const inputVal = document.querySelector('.input').value;
+    let task = new ToDo(inputVal);
+    task.setTask();
+    task.setOddColor();
 }
