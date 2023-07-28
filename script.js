@@ -11,7 +11,6 @@ btn.addEventListener('click', addList);
 function addList(){
     const inputVal = document.querySelector('.input').value;
     let li = document.createElement('li');
-    li.appendChild(document.createTextNode('poop'))
     ul.appendChild(li);
     li.classList.add('li');
     li.textContent = inputVal;
