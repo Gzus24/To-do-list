@@ -11,7 +11,7 @@ const toDo = {
         ul.appendChild(li);
         li.textContent = chore;
             li.onclick = ()=>{
-                ul.replaceChild(li);
+                ul.removeChild(li);
             }
     },
     setOddColor: function(){
